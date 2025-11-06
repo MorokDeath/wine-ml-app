@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Quality Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            margin: 5px;
+            padding: 8px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Предсказание качества вина</h2>
+    <form action="/predict" method="post">
+        <input type="text" name="alcohol" placeholder="Alcohol" required>
+        <input type="text" name="sulphates" placeholder="Sulphates" required>
+        <input type="text" name="citric_acid" placeholder="Citric Acid" required>
+        <br>
+        <button type="submit">Предсказать</button>
+    </form>
+    {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
